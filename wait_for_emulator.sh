@@ -15,10 +15,9 @@ until [[ "$bootanim" =~ "stopped" ]]; do
     fi
   elif [[ "$bootanim" =~ "running" ]]; then
     echo "Emulator is ready"
+    adb -e shell input keyevent 82
+    echo "Unlocked emulator screen"
     exit 0
   fi
   sleep 1
 done
-echo "Done"
-adb -e shell input keyevent 82
-echo "Unlocked emulator screen"
